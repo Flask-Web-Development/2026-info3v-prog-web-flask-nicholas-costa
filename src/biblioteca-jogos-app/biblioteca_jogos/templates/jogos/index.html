@@ -3,11 +3,25 @@
 <head>
     <title>Biblioteca de Jogos</title>
 </head>
+
 <body>
 
 <h1>Biblioteca de Jogos</h1>
 
-<p>Sistema de cadastro de jogos funcionando!</p>
+<a href="/criar">Cadastrar novo jogo</a>
+
+<h2>Jogos cadastrados:</h2>
+
+<ul>
+{% for jogo in jogos %}
+    <li>
+        {{ jogo.nome }} -
+        {{ jogo.plataforma }} -
+        {{ jogo.genero }} -
+        {{ jogo.status }}
+    </li>
+{% endfor %}
+</ul>
 
 </body>
 </html>
