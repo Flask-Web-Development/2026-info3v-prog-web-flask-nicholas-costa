@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+    <title>Biblioteca de Jogos</title>
+</head>
+
+<body>
+
+<h1>Biblioteca de Jogos</h1>
+
+{% if g.usuario %}
+<p>Olá, {{ g.usuario["username"] }}!</p>
+
+<a href="{{ url_for('jogos.create') }}">
+    Cadastrar jogo
+</a>
+
+<a href="{{ url_for('auth.logout') }}">
+    Sair
+</a>
+
+{% else %}
+
+<a href="{{ url_for('auth.login') }}">
+    Entrar
+</a>
+
+<a href="{{ url_for('auth.register') }}">
+    Criar conta
+</a>
+
+{% endif %}
+
+
+<h2>Jogos cadastrados:</h2>
+
+
+{% for jogo in jogos %}
+
+<div>
+
+<h3>{{ jogo["nome"] }}</h3>
+
+<p>
+Plataforma: {{ jogo["plataforma"] }}
+</p>
+
+<p>
+Gênero: {{ jogo["genero"] }}
+</p>
+
+<p>
+Status: {{ jogo["status"] }}
+</p>
+
+
+{% if g.usuario and g.usuario["id"] == jogo["usuario_id"] %}
+
+<a href="{{ url_for('jogos.update', id=jogo['id']) }}">
+Editar
+</a>
+
+
+<form method="post" action="{{ url_for('jogos.delete', id=jogo['id']) }}">
+
+<button type="submit">
+Excluir
+</button>
+
+</form>
+
+{% endif %}
+
+</div>
+
+<hr>
+
+{% endfor %}
+
+
+</body>
+</html>

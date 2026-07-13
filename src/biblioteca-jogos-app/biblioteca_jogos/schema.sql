@@ -1,7 +1,0 @@
-CREATE TABLE jogo (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nome TEXT NOT NULL,
-    plataforma TEXT NOT NULL,
-    genero TEXT NOT NULL,
-    status TEXT NOT NULL
-);

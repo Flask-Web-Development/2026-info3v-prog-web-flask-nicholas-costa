@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <title>Editar Jogo</title>
+</head>
+
+<body>
+
+<h1>Editar Jogo</h1>
+
+<form method="post">
+
+    <label>Nome:</label>
+    <input name="nome" value="{{ jogo.nome }}">
+
+    <br><br>
+
+    <label>Plataforma:</label>
+    <input name="plataforma" value="{{ jogo.plataforma }}">
+
+    <br><br>
+
+    <label>Gênero:</label>
+    <input name="genero" value="{{ jogo.genero }}">
+
+    <br><br>
+
+    <label>Status:</label>
+    <input name="status" value="{{ jogo.status }}">
+
+    <br><br>
+
+    <button type="submit">Atualizar</button>
+
+</form>
+
+</body>
+</html>
